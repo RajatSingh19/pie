@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    string s;
+    string ans;
+    cin>>s;
+    stack<char> stak;
+    for(int i=0;i<s.size();i++)
+    {
+        if(stak.empty())
+        stak.push(s[i]);
+        else if(s[i]==stak.top())
+        stak.pop();
+        else
+        stak.push(s[i]);
+    }
+    while(!stak.empty())
+    {
+        ans=stak.top()+ans;
+        stak.pop();
+    }
+    if(ans=="")
+    cout<<"Empty String"<<endl;
+    else
+    cout<<ans;
+}
